@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <!--This is gooogle fonts link to get text styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap" rel="stylesheet">
+
+    <!-- This link for bootstrap styles page.-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!--Link for css sytle page-->
+    <link rel="stylesheet" type="text/css" href="conf-bootsrap-font.css">
+
+</head>
+<body class="bg-warning bg-gradient m-3">
+
+    <form>
+
+        <div class="row">
+
+            <div class="text-center">
+                <h2>Conference Registration Form</h2>
+            </div>
+
+            <div class="col-md-6">
+                <h6 class="m-2">Welcome to the Annual [Conference Name]!</h6>
+
+                <p class="m-2">We are excited to bring together professionals, experts, and enthusiasts 
+                    from across the [industry or field] for a day of insightful discussions, 
+                    networking opportunities, and groundbreaking ideas. This year's conference 
+                    focuses on [conference theme], where we’ll explore the latest trends, innovative 
+                    technologies, and best practices shaping the future of our industry. Whether you're 
+                    here to learn from our esteemed speakers, participate in interactive workshops, 
+                    or connect with peers, we believe this event will inspire you and provide valuable 
+                    knowledge to take back to your organization. We look forward to your active participation 
+                    and hope you enjoy the experience!</p>
+            </div>
+
+            <div class="col-md-6">
+
+                <label for="first_name">First Name *</label>
+                <input class="form-control m-2" type="text" name="first_name" id="first_namee" required>
+
+                <label for="last_name">Last Name *</label>
+                <input class="form-control m-2" type="text" name="last_name" id="last_name" required>
+
+                <label for="email">Email *</label>
+                <input class="form-control m-2" type="email" name="email" id="email" required>
+        
+                <label for="phone">Phone *</label>
+                <input class="form-control m-2" type="tel" name="phone" id="phone" required>
+
+                <label for="comments">If you have any question?</label> 
+                <textarea class="form-control m-2" id="comments" name="comments"></textarea>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="attended-before">
+                    <label class="form-check-label" for="attended-before">Have you attended before?</label>
+                </div>
+                <input class="btn btn-primary mt-3" type="submit" value="Submit">
+
+            </div>
+
+        </div>
+
+    </form>
+    
+</body>
+</html>

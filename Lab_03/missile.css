@@ -1,0 +1,44 @@
+h1 {
+    font-size: 45px;
+    color:red;
+}
+
+#real-alert {
+    color: black;
+    font-size: 25px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #ff5555;
+    text-decoration: none;
+}
+
+#real-alert:hover {
+    background-color: #ff0000;
+    color:white;
+}
+
+#test-only {
+    color: black;
+    font-size: 25px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #5555ff;
+    text-decoration: none;
+}
+
+#test-only:hover {
+    background-color: #0000ff;
+    color:white;
+}
+
+.missile-link {
+    display: block;
+    padding: 15px 30px;
+}
+
+body {
+    background-color: yellow;
+    padding: 15px;
+    margin: auto;
+    text-align: center;
+}

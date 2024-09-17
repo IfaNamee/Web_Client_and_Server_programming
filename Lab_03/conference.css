@@ -1,0 +1,50 @@
+/* General form styling */
+form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #7DBA15;
+}
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Input and textarea styles */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: bold;
+}
+input, textarea {
+    width: 85%;
+    padding: 10px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+} 
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    width: 90%;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #71A9F7;
+    border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+    background-color: green;
+}
