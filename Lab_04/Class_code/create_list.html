@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create List</title>
+</head>
+<body>
+
+    <p>Enter some text to add to the list</p>
+    <input id="new-text">
+    <button id="add-text">Add</button>
+
+    <!--Enter unordered list-->
+    <ul id="list-of-text"></ul>
+
+    <!--Button clear to clear-->
+    <button id="clear">Clear</button> 
+
+    <script>
+
+        // Write your script list
+        let textInput = document.querySelector('#new-text')
+        let addBottun = document.querySelector('#add-text')
+        let textList = document.querySelector('#list-of-text')
+        let clearButton = document.querySelector('#clear')
+
+        let elementsInList = 0  // tracking number of items in list
+        let maxElements = 10
+
+        document.addEventListener('keyup', function() {
+            if(event.keyCode == 13) // or (event.key === 'Enter') 
+            addBottun.click()  // click the addButton if user pressed enter key
+        })
+
+        addBottun.addEventListener('click', function() {
+
+            // add limit number of lists on max 10
+            if (elementsInList >= maxElements) { // check the max number is not exceeded.
+                alert('No more elements can be added')
+                return
+            }
+
+            // read the text in the input
+            let newText = textInput.value
+            if (newText.length == 0) {  // validate user has typed in some text
+                alert('Enter some text')  // alert message display.
+                return
+            }
+            if (newText.length >= 51) {  // vaditation if user entered more than 50. letters 51
+                // alert message display and how many letters you entered if its more than 50
+                alert('Text is too long enter 50 less than 50 letters, You entered ' + newText.length +  ' letters')  
+                return 
+            }
+
+            // clear a new li element
+            let newListIteam = document.createElement('li')
+            // the li element text should be the text from the input.
+            newListIteam.innerHTML = newText
+            // add the new li element us a child of the ul element
+            textList.appendChild(newListIteam)
+            // clear the text in the input
+            textInput.value = ''
+
+            elementsInList ++  // count lists of the elements.
+
+        })
+
+        clearButton.addEventListener('click', function () {
+            textList.innerHTML=addBottun = ''
+            elementsInList = 0
+        })
+
+    </script>
+    
+</body>
+</html>

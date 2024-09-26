@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Game</title>
+</head>
+<body>
+
+    <!--Write you HTML content here-->
+    <P> What is the capital of Wisconsin?</P>
+
+    <!--Button list to pick-->
+    <button class="wrong-answer">Bayfield</button>
+    <button id="correct-answer">Madison</button>
+    <button class="wrong-answer">Milwaukee</button>
+
+    <p id="result"></p>
+
+    <script>
+
+        // Weite your script here.
+        let correctAnswerButton = document.querySelector('#correct-answer')
+        
+        let wrongAnswerButton = document.querySelectorAll('.wrong-answer')
+
+        let result = document.querySelector('#result')
+
+        let defaultButtonColor = correctAnswerButton.style.background  // set default background color 
+
+        // add an event listener to both button wrong answers.
+
+       wrongAnswerButton.forEach(function(wrongAnswer){
+         
+            wrongAnswer.addEventListener('click', function(){
+                result.innerHTML = 'Wrong answer, try again?'  // Print message if answer is wrong
+                correctAnswerButton.style.background = defaultButtonColor // This remove background color is you want try again
+            })
+        })
+
+    /* This another way to do event listener using loop us Java */
+    
+    //   for (let x=0; x < wrongAnswerButton.length; x++) {
+    //      let wrongAnswer = wrongAnswerButton[x]
+    
+    //       wrongAnswer.addEventListener('click', function(){
+    //             result.innerHTML = 'Wrong answer, try again?'
+    //            correctAnswerButton.style.background = defaultButtonColor
+    //      })
+    //    }    
+        
+
+        // add event listener for correct answer.
+        correctAnswerButton.addEventListener('click', function(){
+            result.innerHTML = 'Correct answer!'   // Print message if answer is correct.
+            correctAnswerButton.style.background = 'green' // styles background color if the answer is correct
+        })
+
+    </script>
+    
+</body>
+</html>

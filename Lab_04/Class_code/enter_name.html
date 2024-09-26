@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter your name</title>
+</head>
+<body>
+    
+    <p>Please enter your name</p>
+    <input type="text" id="username">
+    <button id="save-user-name">Save</button>
+
+    <p id="welcome-message"></p>
+
+    <script>
+
+        let saveButton = document.querySelector('#save-user-name')
+
+        let nameInput = document.querySelector('#username')
+
+        let welcomeMessage = document.querySelector('#welcome-message')
+
+        saveButton.addEventListener('click', function() {
+            let name = nameInput.value;
+
+            if(name.length < 2){
+                welcomeMessage.innerHTML = 'Please enter at atleast 2 letters.' // display if letters 1 or less 1.
+            } else {
+                welcomeMessage.innerHTML = 'Welcome, ' + name + '!' // Or `Welcome, ${name}!`
+            }
+        });
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Button Click</title>
+</head>
+<body>
+
+    <!-- Write you HTML content here-->
+     <button>Click here!</button>
+
+     <script>
+
+        // Write your script here
+        let button = document.querySelector('button')
+        
+        button.addEventListener('click', function() {
+            alert('You clicked the button')
+            button.innerHTML = 'You Click the button'
+            button.style.backgroundColor = 'Green'
+            // button.remove()  this is remove click box from page.
+        })
+
+        // 'functinon' is display message. other way code. 
+        //    function showAlert() {
+        //        alert('You clicked the button')
+        //    }       
+        //    button.addEventListener('click', showAlert)
+
+     </script>
+    
+</body>
+</html>

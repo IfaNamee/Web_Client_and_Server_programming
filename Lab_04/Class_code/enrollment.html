@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enrollment</title>
+</head>
+<body>
+
+    <p>How many credits are you taking this semester?</p>
+    <input type="number" id="credit-count">
+    <button id="submit-credit">Enter</button>
+
+    <p id="status-message"></p>
+
+    <script>
+
+        let submitButton = document.querySelector('#submit-credit')
+        let creditInput = document.querySelector('#credit-count')
+        let statusMessage = document.querySelector('#status-message')
+
+        submitButton.addEventListener('click', function() {
+            let credits = creditInput.value
+
+            if (credits > 24) {
+                statusMessage.innerHTML = 'You can not take more than 24 credits in one semester.'
+            } else if (credits >= 12) {
+                statusMessage.innerHTML = 'You are enorlled ' + credits + ' credits which mean a full time student.'
+            } else if (credits >= 6 || credits >= 2) {
+                statusMessage.innerHTML = 'You are enorlled ' + credits + ' credits which mean a part time student.'
+            } else if (credits == 0 || credits == 1) {
+                statusMessage.innerHTML = 'You are enorlled ' + credits + ' credit which mean a less part time student.'
+            } else {
+                statusMessage.innerHTML = 'Error, Pleasa enter zero or a positive numbers.'
+            }
+        })
+
+    </script>
+    
+</body>
+</html>
