@@ -14,20 +14,27 @@
 
     <script>
 
+        // Get the "Enter" button element from the DOM.
         let submitButton = document.querySelector('#submit-credit')
+        // Get the input element where the user enters the number of credits.
         let creditInput = document.querySelector('#credit-count')
+        // Get the paragraph element where the status message will be displayed
         let statusMessage = document.querySelector('#status-message')
 
+        // Add a click event listener to the "Enter" button
+        // This will trigger a function to determine the student's enrollment status
         submitButton.addEventListener('click', function() {
-            let credits = creditInput.value
+            let credits = creditInput.value // Get the value of the credits entered by the user
 
-            if (credits > 24) {
+            if (credits > 24) {  // Check if the credits are mor than 24
                 statusMessage.innerHTML = 'You can not take more than 24 credits in one semester.'
-            } else if (credits >= 12) {
+            } else if (credits >= 12) {  // Check if the credits are 12 or more
                 statusMessage.innerHTML = 'You are enorlled ' + credits + ' credits which mean a full time student.'
-            } else if (credits >= 6 || credits >= 2) {
+            } else if (credits >= 6) {  // Check if the credits are less 12 
                 statusMessage.innerHTML = 'You are enorlled ' + credits + ' credits which mean a part time student.'
-            } else if (credits == 0 || credits == 1) {
+            } else if (credits >= 5 || credits >= 2) {  // check if the credits between 5 - 2
+                statusMessage.innerHTML = 'You are enorlled ' + credits + ' credits which mean less part time student.'
+            } else if (credits == 0 || credits == 1) {  // Check if the credits are 12 or more
                 statusMessage.innerHTML = 'You are enorlled ' + credits + ' credit which mean a less part time student.'
             } else {
                 statusMessage.innerHTML = 'Error, Pleasa enter zero or a positive numbers.'
