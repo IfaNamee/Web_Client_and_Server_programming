@@ -11,6 +11,10 @@
             position: absolute;
             font-size: smaller;
             background: whitesmoke;
+            width: 350px;           
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 2px 2px 5px rgba;
         }
     </style>
 </head>
@@ -28,7 +32,7 @@
 
 Even though there are 3 links (and could be any number of links) there is only one popup element.
 Only one popup will be shown at a time so we can re-use the same element. When the user mouses over a link, the popup
-will be moved to their mouse cursor location, and configured to show the link's text and image. -->
+will be moved to their mouse cursor location, and configured to show the link's text and image. --->
 <div id="previewPopup">
     <div id="previewHTML"></div>
     <img id="previewImage">  <!-- Can disregard warning about no source since we'll set the source with JavaScript -->
@@ -71,7 +75,7 @@ will be moved to their mouse cursor location, and configured to show the link's 
 
                 // TODO Process JSON to extract necessary data,
 
-                // TODO configure popup - set text and image
+                // TODO configure popup - set text and image.
 
                 let preViewHtml = pagePreviewJson.extract_html
                 previewPopupHTML.innerHTML = preViewHtml

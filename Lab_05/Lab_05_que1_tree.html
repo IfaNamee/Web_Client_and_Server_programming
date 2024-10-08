@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <title>Tree Order Form</title>
+
+        <style>
+            
+            input, select {
+                width: 100%;
+                padding: 5px;
+                margin: 5px 5px 5px 0px;
+                box-sizing: border-box;
+            }
+
+            input.error, select.error {
+                border: 2px red solid;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <h1>Minnesota Tree Order Form</h1>
+
+        <p>Enter information to order your tree. All fields are required.</p>
+
+        <h2>Order Information</h2>
+
+        <label for="homeowner-name">Homeowner Name</label><input id="homeowner-name" name="homeowner-name">
+        <br>
+        <label for="homeowner-house-number">House Number</label><input id="homeowner-house-number" name="homeowner-house-number">
+        <br>
+        <label for="homeowner-street-name">Street Name</label><input id="homeowner-street-name" name="homeowner-street-name">
+        <br>
+        <label for="city">City</label><input id="city" name="city"> 
+        <br>
+        <!-- All orders must be for Minnesota, so this input is not editable -->
+        <label for="state">State</label><input id="state" name="state" value="Minnesota" disabled> 
+        <br>
+        <label for="zipcode">Zip Code</label><input id="zipcode" name="zipcode">
+        <br>
+
+        <label for="tree-type">Tree Type</label>
+        <select id="tree-type">
+            <!-- Unselectable message shown. Since this will be required, it forces the user to actually pick a tree, not just click submit for the default first option -->
+            <option disabled selected value=""> Select a tree </option>  
+            <!-- The options that the user will be allowed to select, or choose from -->
+            <option name="tree-type">Cedar</option>
+            <option name="tree-type">Maple</option>
+            <option name="tree-type">Oak</option>
+        </select>
+        <br>
+
+        <button id="submit-order">Submit Order</button>    
+
+        <h2>Order Summary</h2>
+
+        <p id="order-summary">
+            <!-- TODO Use JavaScript to display the order information, 
+                only if all the required information is entered  -->
+        </p>
+        
+
+        <script>
+
+            let homeownerNameInput = document.querySelector('#homeowner-name')
+            let homeownerHouseNumberInput = document.querySelector('#homeowner-house-number')
+            let homeownerStreetNameInput = document.querySelector('#homeowner-street-name')
+            let treeTypeSelect = document.querySelector('#tree-type')
+
+            // TODO create a variable for city input element
+            let cityInput = document.querySelector('#city') // Read city from city input.
+
+            // TODO create a variable for zip code input element
+            let zipcodeInput = document.querySelector('#zipcode') // read zpicode from zipcode input.
+            
+            let submitButton = document.querySelector('#submit-order')
+            let orderSummaryParagraph = document.querySelector('#order-summary')
+
+            submitButton.addEventListener('click', function() {
+
+                let name = homeownerNameInput.value 
+                let houseNumber = homeownerHouseNumberInput.value
+                let streetName = homeownerStreetNameInput.value
+                let treeType = treeTypeSelect.value
+
+                // TODO get the value from the input#city
+                let city = cityInput.value // get value from city input
+                // TODO get the value from the input#zipcode
+                let zipcode = zipcodeInput.value // get value from zipcode input
+
+                
+                // Check each input and select element, add its name to incompleteFields if empty
+
+                let errors = []; 
+
+                if (!name) { // check if name is empty 
+                    errors.push('Homeowner Name is required')
+                }
+
+                if (!houseNumber) {   // check if house number is empty
+                    errors.push('House Number is required')
+                }
+
+                if (!streetName) { // check if street name is empty.
+                    errors.push('Street Name is required')
+                }
+
+                if (!city) {  // check if city name is empty.
+                    errors.push('City is required')
+                }
+
+                if (!zipcode) {  // check if zip code is empty.
+                    errors.push('Zip Code is required')
+                } else if (!validZipcode(zipcode)) {  // check if range not equal to range
+                    errors.push('Valid Minnesota Zip Code is required 55001 - 56763')
+                }
+
+                if (!treeType) {   // check if tree type no choose.
+                    errors.push('Tree type must be select')
+                }
+
+                if (errors.length > 0) {  // checks if incompleteFields are more than zero 
+                    alert(`There are ${errors.length} errors:\n\n` + errors.join("\n"));
+                        return;  // Stop form submission if errors exist
+                }
+            
+                // TODO Validate the zipcode is in the range 55001 and 56763.
+                // to check that the zip code is in Minnesota.
+                // Make sure your script doesn't accept non-numeric input for the zip code.
+                
+                function validZipcode(zipcode) {
+                    let zip = parseInt(zipcode);  // Convert to a number
+                    // check if is a number and within the valid range for Minnesota and numeric using || condition.
+                    if (isNaN(zip) || zip < 55001 || zip > 56763) { 
+                        return false;  // Return false if the zipcode is invalid
+                    } else {
+                        return true;  // Return true if the zipcode is valid
+                    }
+                }
+
+                // Display message of order.
+                orderSummaryParagraph.innerHTML = `
+                Name: ${name}<br>
+                Tree Type: ${treeType}<br>
+                Delivery Address: ${houseNumber} ${streetName}, ${city}, Minnesota ${zipcode}`
+
+
+                // Clear the input fields after the form is submitted
+                homeownerNameInput.value = "";
+                homeownerHouseNumberInput.value = "";
+                homeownerStreetNameInput.value = "";
+                cityInput.value = "";
+                zipcodeInput.value = "";
+                treeTypeSelect.value = "";
+
+            })
+
+        </script>
+
+    </body>
+</html>
