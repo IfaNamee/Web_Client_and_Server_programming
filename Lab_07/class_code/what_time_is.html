@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Interval</title>
+</head>
+    <body>
+        
+        <h1>What time is it?</h1>
+        <p id="time"></p>
+
+        <script>
+
+            let timeElement = document.querySelector('#time')
+
+            setInterval( function() {
+                let date = Date()
+                timeElement.innerHTML = date
+            }, 1000)
+
+            // same as above using '=>' replace function.
+            setInterval( () => {
+                let date = Date()
+                timeElement.innerHTML = date
+            }, 1000)
+
+        </script>
+
+    </body>
+</html>

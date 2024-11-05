@@ -1,0 +1,46 @@
+/* Style for the page header */
+h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Style for the ISS data container */
+div {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Style for the time and ISS coordinates */
+#time, #iss-lat, #iss-long {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: blue;
+}
+
+p {
+    font-size: 1em;
+    margin: 5px;
+}
+
+/* Styling for the ISS map container */
+#iss-map {
+    height: 350px;
+    width: 500px;
+    border: 2px green solid;
+    border-radius: 10px;
+    box-shadow: black solid;
+    margin: 20px auto;
+}
+
+/* Attribution text style */
+#attribution {
+    text-align: center;
+    font-size: 1em;
+    color: #666;
+    font-style: italic;
+    margin-top: 15px;
+}
