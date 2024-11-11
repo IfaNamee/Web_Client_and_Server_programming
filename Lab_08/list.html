@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello Vue To Do List</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- vue will manage all the HTML here-->
+
+        <h1>Task List</h1>
+        <h2>Enter new task</h2>
+        <label>Pleasa enter your to-do task</label>
+        <input v-model="newTask">
+        <br>
+        <button v-on:click="addTask">Add Task</button>
+
+        <ul>
+            <li v-for="task in taskList">
+                {{task}}
+            </li>
+        </ul>
+        
+    </div>
+
+    <script>
+
+        // set up vue app
+        const { createApp, ref, computed} = Vue 
+
+        createApp({
+            setup() {
+                // define things the Vue app needs here.
+
+               const taskList = ref([ 'Water plants', 'Pay cellphone bill', 'Wash floor'])
+               const newTask = ref('')
+
+               function addTask() {
+                // add the newTask to the taskTist
+                if (newTask.value){
+                    taskList.value.push(newTask.value)
+                    newTask.value = ''
+                }
+               
+               }
+                
+                return {
+                    taskList,
+                    newTask,
+                    addTask
+                }    
+            }
+                                  
+        }).mount('#app')
+
+    </script>
+</body>
+</html>
+
+<!--- FOR MORE EXAMPLES -->
+<!--- https://github.com/claraj/vue-week-1-examples-composition --> 

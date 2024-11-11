@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- vue will manage all the HTML here-->
+
+        <h1>Hello Vue!</h1>
+        
+        {{message}}
+        <p>{{messageWithExclamationPoints}}</p>
+
+        <button v-on:click="addExaclamationPoints">Add Exclamation Points</button>
+        <button v-on:click="clearExclamationPoints">Clear</button>
+    
+    </div>
+
+    <script>
+
+        // set up vue app
+        const { createApp, ref, computed} = Vue 
+
+        createApp({
+            setup() {
+                // define things the Vue app needs here.
+
+                const message = ref('Hi!')
+                const numberExclamationpoints = ref(0)
+
+                function addExaclamationPoints() {
+                    if (numberExclamationpoints.value < 10) {
+                        numberExclamationpoints.value ++
+                    } else {
+                        alert('No more exclamation point!')
+                    }
+                }
+
+                function clearExclamationPoints() {
+                    numberExclamationpoints.value = 1
+                }
+
+                const messageWithExclamationPoints = computed( function() {
+                    let computedMessage = message.value
+                    // add ! based on numberOfExclamationPoints
+                    for (let x = 0; x < numberExclamationpoints.value; x++) {
+                        computedMessage = computedMessage + '!'
+                    }
+                    return computedMessage
+                })
+
+                return {
+                    message,
+                    numberExclamationpoints,
+                    messageWithExclamationPoints,
+                    addExaclamationPoints,
+                    clearExclamationPoints,
+                    
+                }
+            }
+        }).mount('#app')
+
+    </script>
+</body>
+</html>

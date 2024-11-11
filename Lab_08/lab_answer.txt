@@ -1,0 +1,20 @@
+
+"vue.global.js:2260 [Vue warn]: Property "total" was accessed during 
+render but is not defined on instance. at <App>"
+
+What does this Vue warning message mean? 
+Answer: This Vue warning notice means that within your property 
+        you are trying to display or use a property  called total.
+        but However, Vue cannot identify it because it is not 
+        stated in the computed properties.
+
+Can you safely ignore it?
+Answer: No, It is helpful not to ignore this warning since it suggests 
+        your code is referring a property that does not exist, which may 
+        cause other sections of your program behave incorrectly.
+
+What causes it, and how do you fix it?
+Answer: This warning display when we forget define component’s data or setup
+        or miss return in the component’s data or setup.
+        simply to fix define or return 'total' in component setup funtion.
+

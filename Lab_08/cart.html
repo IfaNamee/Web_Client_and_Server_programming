@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hello Vue Forms</title>
+        <!-- Vue.js library, version 3, is being included here via a CDN link -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+        <style>
+            td, th {
+                width: 25%;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-- Main container for the Vue app -->
+        <div id="app">
+
+            <table>
+                <tr>
+                    <th>Iteam</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+
+                <tr>
+                    <td>{{ name }}</td>
+                    <td>{{ unitPrice }}</td>
+                    <td><input type="number" v-model="quantity"></td>
+                    <td>{{ total }}</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script>
+
+        // Import Vue functions
+        const { createApp, ref, computed} = Vue 
+
+        // Create a new Vue app instance
+        createApp( {
+            setup() {
+
+                const name = ref('Hat')
+                const quantity = ref(1)
+                const unitPrice = ref(4.99)
+
+                const total = computed( function() {
+                    const totalPrice = quantity.value * unitPrice.value
+                    const formattedPrice = totalPrice.toFixed(2)
+                    return formattedPrice
+                })
+
+                return {
+                    name,
+                    quantity,
+                    unitPrice,
+                    total
+                }
+            }
+        }).mount('#app')  // Mount the Vue app to the HTML element with id 'app'
+
+    </script>
+
+    </body>
+</html>

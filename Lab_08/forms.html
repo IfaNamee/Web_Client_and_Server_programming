@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello Vue Forms</title>
+    <!-- Vue.js library, version 3, is being included here via a CDN link -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+    <!-- Main container for the Vue app -->
+    <div id="app">
+
+        <!-- Label prompting the user to enter their name -->
+        <label>Please enter your name:</label>
+
+         <!-- Input field bound to the 'name' variable in Vue using v-model -->
+        <input v-model="name">
+
+        <!-- Conditional rendering: displays if 'name' has a value -->
+        <p v-if="name">Thank, you name is {{name}}</p>
+
+        <!-- Fallback message displayed when 'name' is empty -->
+        <p v-else>Waiting user input</p>
+
+         <!-- Button that triggers the 'clearName' function on click -->
+        <button v-on:click="clearName">Clear Name</button>
+    </div>
+
+    <script>
+
+        // Import Vue functions
+        const { createApp, ref} = Vue 
+
+        // Create a new Vue app instance
+        createApp( {
+            setup() {
+               
+                // Define a reactive variable 'name' with an empty string as initial value
+                const name = ref('')
+
+                // Function to clear the 'name' variable
+                function clearName() {
+                    name.value = ''
+                }
+                
+                // Return 'name' and 'clearName' so they can be accessed in the template
+                return {
+                    name,
+                    clearName
+                }
+            }
+        }).mount('#app')  // Mount the Vue app to the HTML element with id 'app'
+
+    </script>
+
+</body>
+</html>
