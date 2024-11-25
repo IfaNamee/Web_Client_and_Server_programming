@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Sign In</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+
+<body>
+    <div id="app">
+        
+        <div id="new-student-form-errors" class="m-2">
+            <!-- TODO show errors from form validation -->
+             <div v-if="formErrors.length > 0" class="alert alert-danger">
+                <li v-for="error in formErrors">
+                    {{ error}}
+                </li>
+             </div>
+             
+        </div>
+
+
+        <div id="new-student-form" class="card add-student m-2 p-2">
+            <h4 class="card-title">Add new student</h4>
+
+            <div class="form-group mb-3">
+                <label for="name">Name</label>
+                <!-- TODO v-model newStudentName -->
+                <input v-model.trim="newStudentName" id="name" class="form-control">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="starID">Star ID</label>
+                 <!-- TODO v-model newStarID -->
+                <input v-model.trim="newStarID" id="starID" class="form-control">
+            </div>
+
+            <!-- TODO v-on:click event handler -->
+            <button v-on:click="addStudent" class="btn btn-primary">Add</button>
+            
+        </div>
+
+
+        <div id="student-list-table" class="card m-2 p-2">
+            <h4 class="card-title">Student List</h4>
+            <h5>{{studentCount}} student(s) in class.</h5>
+            <div id="student-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>StarID</th>
+                            <th>Present?</th>
+                            <th>Delete?</th>
+                        </tr>
+                    </thead>
+
+                   <tbody>
+                        <!-- TODO create table rows 
+                        Each row will have a checkbox, bound to the app's data 
+                        When the checkbox is checked/unchecked, 
+                        the student will be signed in/out -->
+
+                        <tr v-for="student in sortedStudents" v-bind:class="{present: student.present, absent: !student.present}">
+
+                            <td>{{student.name}}</td>
+                            <td>{{student.starID}}</td>
+                            <td>
+                                <input type="checkbox" v-model="student.present" v-on:change="arrivedOrLeft(student)">
+                                <span v-if="student.present" class="mx-3">Here</span>
+                                <span v-else="student.present" class="mx-3">Not present</span>
+                            </td>
+                            <td>
+                                <button v-on:click="deleteStudent(student)" class="btn btn-danger">
+                                    <i class="bi bi-trash-fill"></i> Delete
+                                </button>
+                            </td>
+
+                        </tr>
+
+                   </tbody>
+
+                </table>
+            </div>
+        </div>
+
+        <div id="welcome-or-goodbye-message" class="m-2">
+            
+            <!-- TODO show a message when student arrives or leaves  -->
+            <div v-if="mostRecentStudent.name">
+                
+                <div v-if="mostRecentStudent.present" class="alert alert-success">
+                    Welcome, {{mostRecentStudent.name}}!
+                </div>
+
+                <div v-else class="alert alert-info">
+                    Goodbye {{mostRecentStudent.name}}, see you later.
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <script>
+
+        // TODO Vue app
+        const {createApp, ref, computed} = Vue 
+
+        createApp({
+            setup() {
+                // create reactive data
+
+                const newStudentName = ref('')
+                const newStarID = ref('')
+
+                // students have a name, a starID, present(boolean)
+                const studentList = ref([
+                    {name: 'A.Student', starID: 'aa1234aa', present: false},
+                    {name: 'B.Student', starID: 'bb1234bb', present: false},
+                ])
+
+                const formErrors = ref([])
+
+                const mostRecentStudent = ref({})
+
+                // create functions
+
+                function addStudent() {
+
+                    formErrors.value = [] // reset form errors
+
+                    // check if newStudentName is Invalid
+                    if (newStudentName.value.length == 0) {
+                        formErrors.value.push('Student name must be entered')
+                    }
+
+                    // check if starID is Invalid
+                    if (newStarID.value.length == 0) {
+                        formErrors.value.push('StarID must be entered')
+                    }
+
+                    // if there are no errors - is the form valid
+                    if (formErrors.value.length == 0) {
+                        let student = {
+                            name: newStudentName.value,
+                            starID: newStarID.value,
+                            present: false
+                        }
+
+                        studentList.value.push(student) 
+                        newStudentName.value = ''
+                        newStarID.value = ''
+                    }
+
+                }
+                // create computed propertries
+
+                function arrivedOrLeft(student) {
+                   //  alert(student.name)
+                   mostRecentStudent.value = student
+                }
+
+                function deleteStudent(studentToDelete) {
+
+                    if (confirm(`Delete ${studentToDelete.name}?`)) {
+                        studentList.value = studentList.value.filter(student => student != studentToDelete)
+                    }
+
+                    /* or this step to delete
+
+                    studentList.value = studentList.value.filter( (student) => {
+                        return student != studentToDelete
+                    })
+
+                    */
+
+                    /* or this step to delete
+
+                    const studentListWithoutDeleteStudent = []
+                    studentList.value.forEach(student => {
+                        if (student != studentToDelete) {
+                            studentListWithoutDeleteStudent.push(student)
+                        }
+                    })
+
+                    studentList.value = studentListWithoutDeleteStudent
+
+                    */
+                }
+
+                const sortedStudents = computed( () => {
+
+                    return studentList.value.toSorted( (student1, student2) => {
+                        return student1.name.localeCompare(student2.name)
+                    })
+                })
+
+                const studentCount = computed( () => {
+                    return sortedStudents.value.length
+                })
+
+                return {
+                    // return reactive data
+                    studentList,
+                    newStarID,
+                    newStudentName,
+                    formErrors,
+                    mostRecentStudent,
+
+                    // return functions
+                    addStudent,
+                    arrivedOrLeft,
+                    deleteStudent,
+
+                    // return computed properties
+                    sortedStudents,
+                    studentCount,
+                }
+            }
+        }).mount('#app')
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+How is Vue and Vanilla JavaScript different?
+Compare your solution for part 2 to the earlier Student Club Roster.
+
+Vue
+    Vue has higher level of abstraction.
+    Automatically updates the datas.
+    Use syntax with directives and Easier to learn
+Vanilla
+    Offers no abstraction work directly function and event listeners.
+    Syntax is requiring manual implementation.
+    Use manipulation methods manual.
+
+What differences do you see?
+    - Quality of code.
+    - Easy to read and east to figure out mistakes.
+
+Which one do you prefer? Why?
+    I preferred Vue.js since it is simple to code and develop. 
+    It simplifies complex procedures, speeds development, and offers 
+    a structured method to managing components and state. It’s extremely 
+    especially valuable for projects that demand scalability, reactivity,
+     or regular updates.
