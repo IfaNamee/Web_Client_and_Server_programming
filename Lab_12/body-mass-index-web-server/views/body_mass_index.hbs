@@ -1,0 +1,22 @@
+<!-- Container for the form, styled with the "from-page" class -->
+<div class="from-page">
+    
+    <h1>Enter Your Data</h1> <!-- Main heading for the form -->
+
+    <!-- Form to collect user input, using POST method to submit data to the "/calculate-bmi" route -->
+    <form method="POST" action="/calculate-bmi">
+
+        <!-- Label for the height input field -->
+        <label class="input-label" for="height">Height in meters</label>
+        <!-- Input field for height, accepts numbers, has a placeholder, and is required -->
+        <input class="input-form" id="height" type="number" name="height" placeholder="Enter height in meters" required step="any">
+
+        <!-- Label for the weight input field -->
+        <label class="input-label" for="weight">Weight in kilograms</label>
+        <!-- Input field for weight, accepts numbers, has a placeholder, and is required -->
+        <input class="input-form" id="weight" type="number" name="weight" placeholder="Enter weight in kilograms" required step="any">
+
+        <!-- Submit button to send the form data -->
+        <button type="submit">Calculate</button>
+    </form>
+</div>

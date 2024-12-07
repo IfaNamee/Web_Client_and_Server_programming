@@ -1,0 +1,82 @@
+.first-page { /* first page style for that runs on http://localhost:4000 URL */
+    font-family: Arial, sans-serif;
+    background-color: #1b6faf;
+    padding: 20px;
+    text-align: center;
+    max-width: 600px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.on-all-page { /* Message that display on all app page */
+    font-family: Arial, sans-serif;
+    background-color: lime;
+    padding: 20px;
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* Container for from-page */
+.from-page {
+    border: 2px solid #336aa1; /* Border color */
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px; /* Adjusted padding for better content spacing */
+    bottom: 20px; /* Optional: positions from the bottom of the page */
+    text-align: center;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+}
+
+/* Labels */
+.input-label {
+    text-align: left;
+    font-size: 1em;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px; 
+    color: #34495e; /* Dark greyish-blue color */
+}
+
+/* Input Fields */
+.input-form {
+    width: 80%;
+    padding: 10px;
+    margin: 15px;
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #f9f9f9; /* Light background color */
+}
+
+/* Buttons */
+.from-page button {
+    display: block;
+    width: 100%; /* Fixed width */
+    background-color: #406ad5; /* Button color */
+    color: white;
+    margin: auto;
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Button Hover Effect */
+.from-page button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+}
+
+.result {
+    max-width: 600px;
+    height: 200px;
+    margin: 50px auto;
+    background-color: aqua;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center; /* Centering text inside */
+    color: #34495e; /* Dark color for readability */
+}

@@ -1,0 +1,51 @@
+
+<div class="bg-primary p-4 mb-4 rounded">
+    <h1 class="text-center">Please provide feedback. You may do anonymously.</h1>
+</div>
+
+<div class="row"> 
+
+    <div class="col-md-5">
+        <h2>Instructions</h2>
+        <P>As one of our students, your thoughts, feedback and comments are important to us.</P>
+        <P>Please sent them using this from.</P>
+        <p>If you would like us to follew up with you, include your contact information but is optional.</p>
+    </div>
+
+
+    <div class="col-md-7">
+
+        <form action="/submit-feedback" method="POST">
+
+        <label for="name">Name</label>
+        <input class="form-control" id="name" name="name">
+
+        <br>
+        <label for="email">Email</label>
+        <input class="form-control" id="email" type="email" name="email">
+
+        <br>
+        <label for="comments">Comments</label>
+        <textarea class="form-control" id="comments" name="comments" required></textarea>
+
+        <br>
+        <p>Are you current student?</p>
+
+        <div class="form-check">
+            <input class="form-check-input" id="Yes" type="radio" value="yes" name="current-student">
+            <label class="form-check-label" for="Yes">Yes</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" id="No" type="radio" value="no" name="current-student">
+            <label class="form-check-label" for="No">No</label>
+        </div>
+
+        <br>
+        <input class="btn btn-primary" type="submit">
+
+        </form>
+
+    </div>
+</div>
+
