@@ -1,0 +1,17 @@
+{
+  "name": "would-you-rather-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ifa",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
