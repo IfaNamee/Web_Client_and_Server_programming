@@ -1,0 +1,21 @@
+What's the difference between the Express and the Vue code? Think about this app, 
+and the Would You Rather app. What are the different parts of the app responsible for? 
+You should write about half a page.  Write in your own words and cite all sources used.
+
+Express is a backend framework for Node.js. It handles the application's server-side logic. For example, in this student sign in, Express defines API routes such as GET /students, POST /students, and others for CRUD operations on the database. It handles incoming HTTP requests, interacts with the database using ORM tools like Sequelize, and sends responses to the client in the form of JSON data.
+
+  -  Connecting to databases (such as MySQL and SQLite).
+  -  Validating inputs on the server side.
+  -  Sending structured responses to the front end.
+  -  Managing APIs and middleware for authentication and logging.
+
+Vue is a frontend framework for building dynamic and interactive user interfaces. It works in the browser, emphasizing the app's design and user experience. In the student sign in app, Vue may be in charge of rendering the student list, forms for adding or modifying students, and showing problems or success notifications. It uses Express's APIs to retrieve and manipulate data.
+
+  -  Data from the backend is rendered graphically using components.
+  -  Handling client-side input validation.
+  -  Managing the application's state and flow on the front end.
+  -  Makes sure seamless interactivity and responsiveness.
+
+Sources:
+Express documentation: https://expressjs.com/
+Vue documentation: https://vuejs.org/
