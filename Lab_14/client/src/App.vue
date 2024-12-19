@@ -22,7 +22,9 @@ onMounted( () => {
 
   <!-- Underline warning sign occurs because Vue 3 enforces that 
   the template root must have exactly one root element. so i added one main <div></div> -->
-  <div>
+  <div class="all">
+
+    <h1 class="bg-success text-white text-center rounded p-4 shadow-lg">Student Sign In</h1>
 
     <NewStudentForm></NewStudentForm>
 
@@ -37,6 +39,8 @@ onMounted( () => {
 
 <style scoped>
 
-/* CSS for this component */
+.all {
+ margin: 20px;
+}
 
 </style>

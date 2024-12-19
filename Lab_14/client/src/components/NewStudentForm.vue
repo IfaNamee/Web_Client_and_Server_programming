@@ -51,7 +51,8 @@ const addStudent = () => {
 
             // add new student to studentStore
             studentStore.addNewStudent(student)
-             
+            
+            // Reset fields
             newStudentName.value = ''
             newStarID.value = ''
         }

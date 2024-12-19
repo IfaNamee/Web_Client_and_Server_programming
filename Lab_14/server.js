@@ -22,7 +22,7 @@ app.use('/api', apiRouters)
 // this handles if apiRouter can't handles other occer errors
 app.use(function(req, res, next) {
     // can't find a matching route
-    res.status(404).send('Sorry, not found.')
+    res.status(404).send('Sorry, page not found.')
 })
 
 // this handles if apiRouter can't handles other occer errors
